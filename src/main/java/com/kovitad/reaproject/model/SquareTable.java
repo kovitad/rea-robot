@@ -3,7 +3,6 @@ package com.kovitad.reaproject.model;
 public class SquareTable {
 
 	int dx,dy;
-	
 	public SquareTable(int dxUnits, int dyUnits){
 		this.dx = dxUnits;
 		this.dy = dyUnits;
@@ -12,8 +11,6 @@ public class SquareTable {
 	public int getDx() {
 		return dx;
 	}
-
-
 	public void setDx(int dx) {
 		this.dx = dx;
 	}
