@@ -7,4 +7,5 @@ public interface RobotOperations {
 	public void place(Facing direction,int x,int y);
 	public void left();
 	public void right();
+	public String report();
 }

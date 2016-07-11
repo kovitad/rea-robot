@@ -1,6 +1,6 @@
 package com.kovitad.reaproject.model;
 
-public class Robot {
+public class Robot implements RobotOperations{
 	
 	public enum Facing {
 		NORTH, SOUTH, EAST, WEST
@@ -41,5 +41,25 @@ public class Robot {
 	}
 	public boolean isInPlace() {
 		return isInPlace;
+	}
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void place(Facing direction, int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void left() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void right() {
+		// TODO Auto-generated method stub
+		
 	}
 }
