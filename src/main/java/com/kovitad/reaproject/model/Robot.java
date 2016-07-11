@@ -62,4 +62,9 @@ public class Robot implements RobotOperations{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String report() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
