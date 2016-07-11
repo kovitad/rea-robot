@@ -37,6 +37,6 @@ public class TestRobotModel {
 	public void testGetDefaultOnPlaceValue() {
 		assertEquals(false, myRobot.isInPlace());
 	}
-
+	
 
 }
