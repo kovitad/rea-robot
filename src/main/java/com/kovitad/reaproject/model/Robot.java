@@ -1,10 +1,11 @@
 package com.kovitad.reaproject.model;
 
-public class Robot implements RobotOperations{
+
+import com.kovitad.reaproject.controller.RobotOperations.Facing;
+
+
+public class Robot  {
 	
-	public enum Facing {
-		NORTH, SOUTH, EAST, WEST
-	}
 	private int x;
 	private int y;
 	private Facing facing;
@@ -41,36 +42,5 @@ public class Robot implements RobotOperations{
 	}
 	public boolean isInPlace() {
 		return isInPlace;
-	}
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void place(Facing direction, int x, int y) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void left() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void right() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public String report() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void putOnTable(SquareTable table) {
-		// TODO Auto-generated method stub
-		
 	}
 }
