@@ -67,8 +67,9 @@ public class Robot implements RobotOperations{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
-	public void putOnTable() {
+	public void putOnTable(SquareTable table) {
 		// TODO Auto-generated method stub
 		
 	}
