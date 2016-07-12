@@ -15,26 +15,43 @@ public class TestRobotOperations {
 		myRobot = new Robot();
 	}
 	@Test
-	public void testPlaceRobot() {
-		myRobot.place(Facing.NORTH, 4, 5);
-		assertEquals(Facing.NORTH, myRobot.getFacing());
-		assertEquals(4, myRobot.getX());
-		assertEquals(5,myRobot.getY());
+	public void testPutRobotOnTheTable() {
+		fail("Not yet implemented");
+	}
+	@Test
+	public void testPlaceRobotWithOutPlaceOnTheTable() {
+		fail("Not yet implemented");
 	}
 	
 	@Test
-	public void testMoveRobotBeforePlacing() {
+	public void testMoveRobotBeforePlacingOnTheTable() {
 		myRobot.move();	
 		assertEquals(null, myRobot.getFacing());
 		assertEquals(0, myRobot.getX());
 		assertEquals(0,myRobot.getY());
+		assertEquals("Please take the robot on the table and set the direction!", myRobot.report());
 
 	}
 	@Test
 	public void testMoveRobotAfterPlacingOnTheTable() {
 		//TODO
+		fail("Not yet implemented");
+	}
+	
+
+	@Test
+	public void testMoveRobotToTheLeft() {
+		fail("Not yet implemented");
+	}
+	
+	@Test 
+	public void testMoveRobotToTheRight() {
+		fail("Not yet implemented");
+	}
+	@Test
+	public void testMoveRobotToTheEdgeOfTheTable() {
+		fail("Not yet implemented");
 	}
 
 	
-
 }
