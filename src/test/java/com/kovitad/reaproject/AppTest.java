@@ -5,6 +5,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
+ * @author Kovitad Janlakhon
+ * 
  * Unit test for simple App.
  */
 public class AppTest 

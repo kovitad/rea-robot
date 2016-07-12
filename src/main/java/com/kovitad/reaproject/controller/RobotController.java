@@ -3,56 +3,56 @@ package com.kovitad.reaproject.controller;
 import com.kovitad.reaproject.event.EventListener;
 import com.kovitad.reaproject.exception.UnSupportedOperationsException;
 import com.kovitad.reaproject.model.Robot;
+/*
+ * @author Kovitad Janlakhon
+ * 
+ * Controller for the rea robot
+ */
+public class RobotController implements RobotOperations, EventListener {
 
-
-public class RobotController implements RobotOperations , EventListener{
-	
 	private Robot robot = null;
-	
-	
+
 	public RobotController(Robot robot) {
-		this.robot = robot;	
+		this.robot = robot;
 		this.robot.register(this);
 	}
-	
 
 	@Override
 	public void place(Facing direction, int x, int y) {
+		this.robot.setFacing(direction);
 		this.robot.setX(x);
 		this.robot.setY(y);
-		this.robot.setFacing(direction);
-		this.robot.setInPlace(true);	
+		this.robot.setInPlace(true);
 	}
 
 	@Override
 	public void move() {
-		if(this.robot.isInPlace()) {
-				
-				switch (this.robot.getFacing()) {
-				case NORTH:
-					this.robot.setY(this.robot.getY()+1);
-					break;
-				case EAST:
-					this.robot.setX(this.robot.getX()+1);
-					break;
-				case SOUTH:
-					this.robot.setX(this.robot.getX()-1);
-					break;
-				case WEST:
-					this.robot.setY(this.robot.getY()-1);
-					break;
-				default:
-					break;
-		
-				}
-			}
+		if (this.robot.isInPlace()) {
 
-		
+			switch (this.robot.getFacing()) {
+			case NORTH:
+				this.robot.setY(this.robot.getY() + 1);
+				break;
+			case EAST:
+				this.robot.setX(this.robot.getX() + 1);
+				break;
+			case SOUTH:
+				this.robot.setX(this.robot.getX() - 1);
+				break;
+			case WEST:
+				this.robot.setY(this.robot.getY() - 1);
+				break;
+			default:
+				break;
+
+			}
+		}
+
 	}
 
 	@Override
 	public void left() {
-		if(this.robot.isInPlace() ) {
+		if (this.robot.isInPlace()) {
 			switch (this.robot.getFacing()) {
 			case NORTH:
 				this.robot.setFacing(Facing.WEST);
@@ -68,40 +68,41 @@ public class RobotController implements RobotOperations , EventListener{
 				break;
 			default:
 				break;
-	
+
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void right() {
-		if(this.robot.isInPlace() ) {
+		if (this.robot.isInPlace()) {
 			switch (this.robot.getFacing()) {
 			case NORTH:
-				this.robot.setFacing( Facing.EAST );
+				this.robot.setFacing(Facing.EAST);
 				break;
 			case EAST:
-				this.robot.setFacing( Facing.SOUTH );
+				this.robot.setFacing(Facing.SOUTH);
 				break;
 			case SOUTH:
-				this.robot.setFacing( Facing.WEST);
+				this.robot.setFacing(Facing.WEST);
 				break;
 			case WEST:
-				this.robot.setFacing( Facing.NORTH);
+				this.robot.setFacing(Facing.NORTH);
 				break;
 			default:
 				break;
-	
+
 			}
 		}
-		
+
 	}
 
 	@Override
 	public String report() {
-		if(this.robot.isInPlace() ) {
-			return this.robot.getX() + "," + this.robot.getY() + "," + this.robot.getFacing().toString();
+		if (this.robot.isInPlace()) {
+			return this.robot.getX() + "," + this.robot.getY() + ","
+					+ this.robot.getFacing().toString();
 		} else {
 			return "Operation Error : the Robot can not be moved";
 		}
@@ -116,11 +117,9 @@ public class RobotController implements RobotOperations , EventListener{
 	@Override
 	public void onEdgeCrash() {
 		System.out.println("On Edge Crash");
-		throw new UnSupportedOperationsException("The robot is moving out of the table");
-		
+		throw new UnSupportedOperationsException(
+				"The robot is moving out of the table");
+
 	}
-	
-	
-	
 
 }

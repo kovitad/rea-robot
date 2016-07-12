@@ -7,7 +7,7 @@ import com.kovitad.reaproject.controller.RobotController;
 import com.kovitad.reaproject.model.Robot;
 
 /**
- * Hello world!
+ * REA ROBOT VERSION 3
  *
  */
 public class App 
@@ -26,10 +26,13 @@ public class App
     			//next command need to be location and direction
     			try {
 	    			String location = scanner.next();
-	    			x = Integer.parseInt(location.substring(0,1));
-	    			y = Integer.parseInt(location.substring(2,3));
+	    			String[] locationCmds = location.split(",");
+	    			x = Integer.parseInt(locationCmds[0]);
+	    			y = Integer.parseInt(locationCmds[1]);
 	    			validLocation = true;
     			}catch (NumberFormatException n){
+    				System.out.println("Invalid Command!");
+    			}catch (ArrayIndexOutOfBoundsException a){
     				System.out.println("Invalid Command!");
     			}
     			Facing direction = null;
