@@ -107,8 +107,6 @@ public class RobotController implements RobotOperations , EventListener{
 		}
 	}
 
-	
-
 	@Override
 	public void onPlace() {
 		// TODO Auto-generated method stub
