@@ -7,54 +7,43 @@ import org.junit.Test;
 
 import com.kovitad.reaproject.controller.RobotController;
 import com.kovitad.reaproject.controller.RobotOperations;
-import com.kovitad.reaproject.controller.RobotOperations.Facing;
 import com.kovitad.reaproject.model.Robot;
-import com.kovitad.reaproject.model.SquareTable;
+import com.kovitad.reaproject.controller.Facing;
+import com.kovitad.reaproject.exception.UnSupportedOperationsException;
 
 
 public class TestRobotOperations {
 	RobotOperations controller = null;
 	@Before
 	public void initRobot() {
-		controller = new RobotController(new Robot(), new SquareTable(5,5));
-	}
-	@Test
-	public void testPutRobotOnTheTable() {
-		controller.putOnTable(new SquareTable(5, 5));
-		assertEquals("The Robot is on the table", controller.report());
-	}
-	@Test
-	public void testPlaceRobotWithOutPlaceOnTheTable() {
-		controller.place(com.kovitad.reaproject.controller.RobotOperations.Facing.NORTH, 0, 0);
-		assertEquals("Operation Error : the Robot can not be placed", controller.report());
+		controller = new RobotController(new Robot());
 	}
 	
 	@Test
-	public void testMoveRobotBeforePlacingOnTheTable() {
+	public void testMoveRobotBeforePlacing() {
 		controller.move();	
 		assertEquals("Operation Error : the Robot can not be moved", controller.report());
 
 	}
 	@Test
 	public void testMoveRobotOneUnit() {
-		controller.putOnTable(new SquareTable(5, 5));
-		controller.place(com.kovitad.reaproject.controller.RobotOperations.Facing.NORTH, 0, 0);
+		
+		controller.place(Facing.NORTH, 0, 0);
+		controller.move();
 		assertEquals("0,1,NORTH", controller.report());
 	}
-	
 
 	@Test
 	public void testPlaceRobotOnTheLeft() {
-		controller.putOnTable(new SquareTable(5, 5));
-		controller.place(com.kovitad.reaproject.controller.RobotOperations.Facing.NORTH, 0, 0);
+		controller.place(Facing.NORTH, 0, 0);
 		controller.left();
 		assertEquals("0,0,WEST", controller.report());
 	}
 	
 	@Test 
 	public void testMoveRobotToAndThenLeft() {
-		controller.putOnTable(new SquareTable(5, 5));
-		controller.place(com.kovitad.reaproject.controller.RobotOperations.Facing.NORTH, 0, 0);
+		
+		controller.place(Facing.EAST, 1, 2);
 		controller.move();
 		controller.move();
 		controller.left();
@@ -63,15 +52,19 @@ public class TestRobotOperations {
 	}
 	@Test
 	public void testMoveRobotOutOfTheEdgeOfTheTable() {
-		controller.putOnTable(new SquareTable(5, 5));
+	
 		controller.place(Facing.NORTH, 0, 0);
 		controller.move();
 		controller.move();
 		controller.move();
 		controller.move();
 		controller.move();
-		controller.move();
-		assertEquals("Operation Error : Cannot move the robot out of the table", controller.report());
+		try {
+			controller.move();
+		}catch(UnSupportedOperationsException e) {
+			assertEquals("Unsupported Operations Error : The robot is moving out of the table",e.getMessage());
+		}
+		
 	}
 
 	

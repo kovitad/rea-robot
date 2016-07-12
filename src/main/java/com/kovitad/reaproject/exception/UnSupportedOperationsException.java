@@ -7,8 +7,8 @@ public class UnSupportedOperationsException extends UnsupportedOperationExceptio
 	 */
 	private static final long serialVersionUID = -439936230825159976L;
 	
-	public UnSupportedOperationsException() {
-		super("Unsupported Operations Error");
+	public UnSupportedOperationsException(String message) {
+		super("Unsupported Operations Error : "+message);
 	}
 	
 }

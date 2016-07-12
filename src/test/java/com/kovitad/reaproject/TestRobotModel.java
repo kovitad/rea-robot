@@ -29,14 +29,7 @@ public class TestRobotModel {
 	public void testGetDefaultYValue() {
 		assertEquals(0, myRobot.getY());
 	}
-	@Test
-	public void testGetDefaultOntableValue() {
-		assertEquals(false, myRobot.isOnTable());
-	}
-	@Test
-	public void testGetDefaultOnPlaceValue() {
-		assertEquals(false, myRobot.isInPlace());
-	}
+
 	
 
 }

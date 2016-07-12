@@ -6,7 +6,6 @@ package com.kovitad.reaproject.event;
  * 
  */
 public interface EventListener {
-	public void onTable();
 	public void onPlace();
 	public void onEdgeCrash();
 }
